@@ -1,0 +1,146 @@
+# Paper Tutor AI — Setup Instructions (ZIP Method)
+
+## 1) Download
+
+1. Open the GitHub repository in a browser.
+2. Click **Code → Download ZIP**.
+3. After download, right‑click the ZIP → **Extract All**.
+4. Move the extracted folder to the **Desktop**.
+5. Rename the folder to: `paper-tutor-ai`
+
+---
+
+## 2) Open Terminal in the Folder
+
+Inside the `paper-tutor-ai` folder:
+
+* Hold **SHIFT + Right Click** → **Open in Terminal** (or PowerShell).
+
+---
+
+## 3) Verify Python
+
+Type:
+
+```
+python --version
+```
+
+You need **Python 3.10 or newer**.
+
+If not installed:
+
+* Download from [https://www.python.org/downloads/](https://www.python.org/downloads/)
+* During installation CHECK: **Add Python to PATH**
+
+---
+
+## 4) Create Virtual Environment
+
+Run:
+
+```
+python -m venv venv
+```
+
+Activate it:
+
+```
+venv\Scripts\activate
+```
+
+You should now see `(venv)` at the beginning of the terminal line.
+
+---
+
+## 5) Install Required Libraries
+
+Run:
+
+```
+pip install -r requirements.txt
+```
+
+Wait until installation finishes.
+
+---
+
+## 6) Add Google API Key
+
+1. Open: [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+2. Click **Create API Key**
+3. Copy the key
+
+Now create a file inside the project folder named:
+
+```
+.env
+```
+
+Open `.env` in Notepad and paste:
+
+```
+GOOGLE_API_KEY=PASTE_YOUR_KEY_HERE
+```
+
+Save the file.
+
+(Every user must use their own key.)
+
+---
+
+## 7) Run the App
+
+Run:
+
+```
+streamlit run app.py
+```
+
+The terminal will show:
+
+```
+http://localhost:8501
+```
+
+Open this link in Chrome.
+
+Upload a research paper PDF and wait ~30 seconds.
+
+---
+
+## Common Problems
+
+### Streamlit not found
+
+Run:
+
+```
+pip install streamlit
+```
+
+### ModuleNotFoundError
+
+You forgot to activate venv. Run again:
+
+```
+venv\Scripts\activate
+```
+
+### Nothing happens after upload
+
+Use a real text PDF (arXiv paper). Scanned PDFs do not work.
+
+---
+
+# requirements.txt (copy this into a file named requirements.txt)
+
+```
+streamlit
+langchain
+langchain-google-genai
+google-generativeai
+python-dotenv
+pymupdf
+wikipedia
+```
